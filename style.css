@@ -166,3 +166,48 @@ ol li, ul li {
     background-attachment: fixed;
     background-position: center;
 }
+/* Адаптація для мобільних пристроїв */
+@media (max-width: 768px) {
+    /* Зменшуємо відступи в контейнері */
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    /* Робимо постер більшим на весь екран, а текст під ним */
+    .movie-header-block .row {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .movie-header-block img {
+        max-width: 200px;
+        margin-bottom: 20px;
+    }
+
+    /* Кнопки вибору сезонів робимо в рядок, що прокручується */
+    .nav-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-bottom: 10px;
+    }
+    
+    .nav-pills .nav-link {
+        white-space: nowrap;
+    }
+
+    /* Таблиці на телефоні мають прокручуватися вбік, щоб не ламати дизайн */
+    .table-responsive {
+        font-size: 14px;
+    }
+
+    /* Збільшуємо кнопки для зручного натискання пальцем */
+    .btn-episode {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+}
