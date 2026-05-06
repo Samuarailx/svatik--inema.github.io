@@ -1,0 +1,168 @@
+/* Колірна схема */
+.bg-dark-custom {
+    background-color: #0d0d0f;
+    color: #ffffff;
+}
+
+.navbar-custom {
+    background: rgba(18, 18, 22, 0.95);
+    border-bottom: 2px solid #ff0055;
+    backdrop-filter: blur(10px);
+}
+
+/* Блоки контенту */
+.movie-header-block, .video-container-bg, .selection-block {
+    background: #16161a;
+    border-radius: 15px;
+    border: 1px solid #2d2d35;
+}
+
+/* Кнопки серій */
+.btn-episode {
+    background: #25252b;
+    color: #fff;
+    border: 1px solid #3d3d45;
+    padding: 10px;
+    transition: 0.3s;
+}
+
+.btn-episode:hover {
+    background: #ff0055;
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+/* Навігація сезонів */
+.nav-pills .nav-link {
+    color: #b0b0b0;
+    margin-right: 10px;
+    border: 1px solid transparent;
+}
+
+.nav-pills .nav-link.active {
+    background-color: transparent !important;
+    border: 1px solid #00fbff;
+    color: #00fbff !important;
+}
+
+/* Плеєр */
+.video-container-bg {
+    box-shadow: 0 0 30px rgba(0, 251, 255, 0.1);
+}
+/* Адаптивність для блоку з описом */
+@media (max-width: 768px) {
+    .main-row {
+        flex-direction: column;
+        align-items: center !important;
+        text-align: center;
+    }
+    .ms-4 {
+        margin-left: 0 !important;
+        margin-top: 20px;
+    }
+}
+
+/* Стилі значків (badges) */
+.badge {
+    padding: 8px 12px;
+    font-weight: 500;
+}
+
+/* Таблиці */
+.table-dark {
+    --bs-table-bg: transparent;
+}
+/* Кнопка Трейлер (Неон) */
+.btn-neon-trailer {
+    position: relative;
+    padding: 12px;
+    border: none;
+    background: #111;
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.btn-neon-trailer::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(45deg, #ff0055, #00fbff, #ff0055);
+    background-size: 400%;
+    z-index: -1;
+    animation: neon-flow 3s linear infinite;
+}
+
+.btn-neon-trailer::after {
+    content: '';
+    position: absolute;
+    top: 2px; left: 2px; right: 2px; bottom: 2px;
+    background: #111;
+    z-index: -1;
+}
+
+/* Кнопка Дивитись */
+.btn-watch-now {
+    display: block;
+    text-align: center;
+    background: #ff0055;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: 0.3s;
+    border: 1px solid #ff0055;
+}
+
+.btn-watch-now:hover {
+    background: transparent;
+    color: #ff0055;
+    box-shadow: 0 0 15px #ff0055;
+    text-decoration: none;
+}
+
+@keyframes neon-flow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.btn-content {
+    background: linear-gradient(to right, #fff, #00fbff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* Стилізація таблиці */
+.table {
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #1a1a1f !important;
+}
+
+.table th {
+    background-color: #00fbff !important;
+    color: #000 !important;
+    border-color: #2d2d35;
+}
+
+.table td {
+    color: #b0b0b0;
+    border-color: #2d2d35;
+}
+
+/* Списки */
+ol li, ul li {
+    margin-bottom: 5px;
+}
+/* Це додай у style.css для головної сторінки index.html */
+.index-page-body {
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), 
+                url('Images/background.jpg'); /* Шлях до твоєї картинки */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
