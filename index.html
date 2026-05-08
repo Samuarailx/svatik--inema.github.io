@@ -145,34 +145,66 @@
     <div class="row g-4"> <div class="col-lg-6">
             </div>
 
-        <div class="col-lg-6">
-            <div class="main-card-ui p-4 h-100" style="background: #16161a; border-radius: 20px; border: 1px solid #2d2d35; box-shadow: 0 15px 35px rgba(0,0,0,0.5);">
-                <div class="row g-0">
-                    <div class="col-md-5 mb-3 mb-md-0">
-                        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/69SBoxZLDY9vSnv3pZpZ9v6tS6S.jpg" class="img-fluid rounded shadow" alt="Se7en">
-                    </div>
-                    <div class="col-md-7 ps-md-3">
-                        <h2 class="h4 fw-bold text-white mb-2">Сім <span class="text-muted fw-light">(1995)</span></h2>
-                        <div class="mb-3 d-flex flex-wrap gap-2">
-                            <span class="badge border text-muted">18+</span>
-                            <span class="badge bg-warning text-dark">Топ #42</span>
-                            <span class="badge bg-success text-white"><i class="fas fa-volume-up me-1"></i> UA</span>
-                        </div>
-                        <div class="small mb-3 text-secondary">
-                            <div><span style="color: #00fbff;">Жанр:</span> детектив, трилер</div>
-                            <div><span style="color: #00fbff;">Час:</span> 2 год 7 хв</div>
-                        </div>
-                        <button type="button" class="btn btn-outline-info w-100 mb-2 py-2 fw-bold" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/znmZoVkCjpI">
-                            ТРЕЙЛЕР
-                        </button>
-                        <a href="se7en.html" class="btn btn-danger w-100 py-2 fw-bold">
-                            <i class="fa fa-tv me-1"></i> ДИВИТИСЬ
-                        </a>
-                    </div>
-                </div>
-            </div>
+ <div class="main-row align-items-start p-4 mb-4" style="background: #16161a; border-radius: 15px; border: 1px solid #2d2d35; display: flex;">
+    
+    <div class="poster-box" style="flex: 0 0 220px;">
+        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/69SBoxZLDY9vSnv3pZpZ9v6tS6S.jpg" class="img-fluid rounded-top shadow" alt="Сім Постер">
+        
+        <button type="button" class="btn-neon-trailer w-100" 
+                data-bs-toggle="modal" 
+                data-bs-target="#trailerModal" 
+                data-video="https://www.youtube.com/embed/znmZoVkCjpI">
+            <span class="btn-content">ТРЕЙЛЕР</span>
+        </button>
+
+        <a href="se7en.html" class="btn-watch-now w-100">
+            <i class="fa fa-tv me-1"></i> ДИВИТИСЬ
+        </a>
+
+        <div class="d-flex border border-top-0 rounded-bottom text-center py-2 bg-dark">
+            <div class="col pointer text-muted"><i class="far fa-star"></i></div>
+            <div class="col pointer text-muted"><i class="far fa-heart"></i></div>
+            <div class="col pointer text-muted"><i class="far fa-eye"></i></div>
+        </div>
+    </div>
+
+    <div class="ms-4 flex-grow-1">
+        <h2 class="h3 mb-1 fw-bold">
+            <a href="se7en.html" style="color: #fff; text-decoration: none;">Сім</a> 
+            <span class="text-muted fw-light">(1995)</span>
+        </h2>
+        
+        <div class="mb-3 d-flex align-items-center flex-wrap">
+            <span class="badge border text-muted">18+</span>
+            <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Фільм</span>
+            <span class="badge bg-warning text-dark ms-2">Топ #42</span>
+            <span class="ms-3" style="font-size: 0.8rem; color: #555;">
+                <del>Простий детектив</del> <ins>Культовий трилер</ins>
+            </span>
         </div>
 
+        <div class="small mb-3">
+            <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> кримінальний, драма, детектив, трилер</div>
+            <div class="mb-1"><span style="color: #00fbff;">Локація:</span> США (Похмуре місто без назви)</div>
+        </div>
+
+        <div style="max-width: 600px;">
+            <details open>
+                <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
+                <p class="text-secondary small">
+                    Детектив-ветеран Вільям Сомерсет, який мріє про спокій, змушений об'єднатися з молодим напарником Девідом Міллзом. Вони полюють на серійного вбивцю, який карає своїх жертв за <strong>сім смертних гріхів</strong>. Кожна сцена — це пазл, фінал якого шокує назавжди.
+                </p>
+            </details>
+        </div>
+
+        <blockquote class="mt-4" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">
+            "Ернест Гемінґвей писав: «Світ — прекрасне місце, і за нього варто боротися». З другою частиною я згоден."
+        </blockquote>
+
+        <div class="mt-4">
+            <span class="me-4"><strong>КіноБаза:</strong> <span style="color: #00ff88;">8.4</span></span>
+            <span><strong>IMDb:</strong> <span style="color: #ffcc00;">8.6</span></span>
+        </div>
     </div>
 </div>
 
