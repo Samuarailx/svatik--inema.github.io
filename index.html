@@ -195,9 +195,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+<!-- Повний скрипт з виправленою логікою -->
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyC_HapnGpeNmu52ZGb5H4CzFAD7gFLWiS0",
@@ -212,41 +213,75 @@
     const auth = getAuth(app);
     window.auth = auth;
 
+    // Стан входу
     onAuthStateChanged(auth, (user) => {
         const loginBtn = document.getElementById('loginBtn');
         const logoutBtn = document.getElementById('logoutBtn');
+        
         if (user) {
-            loginBtn.classList.add('d-none');
-            logoutBtn.classList.remove('d-none');
+            loginBtn.innerHTML = "ВИ УСПІШНО ВВІЙШЛИ";
+            loginBtn.classList.replace('btn-outline-info', 'btn-success');
+            loginBtn.disabled = true;
+            
+            // Через 2 секунди замінюємо напис на кнопку Виходу
+            setTimeout(() => {
+                loginBtn.classList.add('d-none');
+                logoutBtn.classList.remove('d-none');
+            }, 2000);
         } else {
-            loginBtn.classList.remove('d-none');
+            loginBtn.innerHTML = "УВІЙТИ";
+            loginBtn.classList.remove('d-none', 'btn-success');
+            loginBtn.classList.add('btn-outline-info');
+            loginBtn.disabled = false;
             logoutBtn.classList.add('d-none');
         }
+    });
+
+    // Обробка реєстрації (authModal)
+    document.getElementById('regForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target[1].value;
+        const pass = e.target[2].value;
+
+        createUserWithEmailAndPassword(auth, email, pass)
+            .then(() => {
+                const modal = bootstrap.Modal.getInstance(document.getElementById('authModal'));
+                modal.hide();
+                // Перекидаємо на сторінку фільму (наприклад, Breaking Bad)
+                window.location.href = window.pendingPage || 'watch.html';
+            })
+            .catch(err => alert("Помилка: " + err.message));
+    });
+
+    // Обробка входу (loginModal)
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = e.target[0].value;
+        const pass = e.target[1].value;
+
+        signInWithEmailAndPassword(auth, email, pass)
+            .then(() => {
+                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+            })
+            .catch(err => alert("Помилка: " + err.message));
     });
 
     document.getElementById('logoutBtn').addEventListener('click', () => signOut(auth));
 </script>
 
 <script>
+    // Функція перевірки з пам'яттю сторінки
     function checkAuth(page) {
         const user = window.auth ? window.auth.currentUser : null;
         if (user) {
             window.location.href = page;
         } else {
+            window.pendingPage = page; // Запам'ятовуємо, куди хотів зайти користувач
             const registrationModal = new bootstrap.Modal(document.getElementById('authModal'));
             registrationModal.show();
         }
     }
-
-    const trailerModal = document.getElementById('trailerModal');
-    const trailerVideo = document.getElementById('trailerVideo');
-    trailerModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        trailerVideo.src = button.getAttribute('data-video') + "?autoplay=1";
-    });
-    trailerModal.addEventListener('hide.bs.modal', function () {
-        trailerVideo.src = "";
-    });
 </script>
+    <script type="module src"main.js"></script>
 </body>
 </html>
