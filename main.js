@@ -48,4 +48,28 @@ document.addEventListener('DOMContentLoaded', function () {
     trailerModal.addEventListener('hide.bs.modal', function() {
         document.getElementById('trailerVideo').src = "";
     });
+// Функція, яка перевіряє чи залогінений користувач і змінює кнопки
+function updateNavbar() {
+    const isLogged = localStorage.getItem('isLogged') === 'true';
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (isLogged) {
+        loginBtn.classList.add('d-none');    // Ховаємо "Увійти"
+        logoutBtn.classList.remove('d-none'); // Показуємо "Вийти"
+    } else {
+        loginBtn.classList.remove('d-none'); // Показуємо "Увійти"
+        logoutBtn.classList.add('d-none');    // Ховаємо "Вийти"
+    }
+}
+
+// Функція для виходу
+function logout() {
+    localStorage.removeItem('isLogged');
+    updateNavbar();
+    window.location.reload(); // Перезавантаження для надійності
+}
+
+// Викликаємо перевірку при кожному завантаженні сторінки
+document.addEventListener('DOMContentLoaded', updateNavbar);
 
