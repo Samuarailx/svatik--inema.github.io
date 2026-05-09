@@ -19,8 +19,9 @@
         <a class="navbar-brand fw-bold" href="index.html" style="color: #ff0055; letter-spacing: 1px;">SVATIK <span style="color: #00fbff;">CINEMA</span></a>
         <div class="navbar-nav ms-auto align-items-center">
             <a class="nav-link active me-3" href="index.html">Головна</a>
+            <!-- Кнопка Увійти тепер працює -->
             <button id="loginBtn" class="btn btn-outline-info btn-sm fw-bold px-3" data-bs-toggle="modal" data-bs-target="#loginModal">УВІЙТИ</button>
-            <button id="logoutBtn" class="btn btn-outline-secondary btn-sm fw-bold d-none" onclick="logout()">ВИЙТИ</button>
+            <button id="logoutBtn" class="btn btn-outline-secondary btn-sm fw-bold d-none">ВИЙТИ</button>
         </div>
     </div>
 </nav>
@@ -29,20 +30,14 @@
     <h1 style="color: #00fbff; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 15px rgba(0,251,255,0.4);">
         Лук'яненко Святослав Русланович
     </h1>
-    
-    <!-- Твій опис -->
     <div class="mt-4 mx-auto" style="max-width: 800px; color: #b0b0b0; line-height: 1.6;">
         <p class="fs-5">
-            <span style="color: #ff0055; font-weight: bold;">Ласкаво просимо!</span> Це мій особистий топ найкращих фільмів та серіалів, які я рекомендую до перегляду. Тут зібрані шедеври кінематографа — від захопливих блокбастерів до глибоких кримінальних драм.
-        </p>
-        <p class="small text-info">
-            Вибирайте картку нижче, дивіться трейлер або одразу переходьте до перегляду в найкращій якості.
+            <span style="color: #ff0055; font-weight: bold;">Ласкаво просимо!</span> Це мій особистий топ найкращих фільмів та серіалів, які я рекомендую до перегляду.
         </p>
     </div>
 </header>
 
 <div class="container mt-5 mb-5">
-    
     <!-- КАРТКА: ПУСТИТИСЯ БЕРЕГА -->
     <div class="main-row p-4 mb-5 rounded-4 shadow-lg" style="background: #16161a; border: 1px solid #333;">
         <div class="row">
@@ -53,40 +48,12 @@
                     <button type="button" class="btn-watch-now w-100" onclick="checkAuth('watch.html')">ДИВИТИСЬ</button>
                 </div>
             </div>
-            <div class="col-md-9 mt-3 mt-md-0">
-                <h2 class="fw-bold mb-1">
-                    <a href="watch.html" style="color: #fff; text-decoration: none;" title="Перейти до перегляду">Пуститися берега</a> 
-                    <span class="text-muted fs-4">(2008—2013)</span>
-                </h2>
-                <div class="mb-3 d-flex align-items-center flex-wrap gap-2">
-                    <span class="badge border border-secondary text-secondary">18+</span>
-                    <span class="badge bg-primary-subtle text-primary border border-primary">Серіал / Фільм</span>
-                    <span class="small text-muted ms-2">
-                        <del>Попсове кіно</del> <ins class="text-info" style="text-decoration: none;">Легендарна історія</ins>
-                    </span>
-                </div>
-
-                <div class="small mb-3">
-                    <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> драма, трилер, кримінал</div>
-                    <div class="mb-1"><span style="color: #00fbff;">Хімія:</span> C<sub>10</sub>H<sub>15</sub>N <small class="text-muted">(чистота 99%)</small></div>
-                </div>
-
-                <details open class="mb-3">
-                    <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
-                    <p class="text-secondary small">
-                        Це історія про вчителя, який вирішив піти проти системи. 
-                        <strong>Волтер Вайт</strong> доводить, що навіть найдобріша людина може стати небезпечною.
-                    </p>
-                </details>
-
+            <div class="col-md-9">
+                <h2 class="fw-bold">Пуститися берега <span class="text-muted fs-4">(2008—2013)</span></h2>
+                <p class="text-secondary small">Легендарна історія про Волтера Вайта.</p>
                 <blockquote class="p-3 bg-black bg-opacity-25 border-start border-info border-3 italic" style="font-style: italic;">
-                    "Я не в небезпеці, Скайлер. Я і є небезпека!"
+                    "Я і є небезпека!"
                 </blockquote>
-
-                <div class="mt-4">
-                    <span class="me-4"><strong>КіноБаза:</strong> <span class="text-success fw-bold">9.0</span></span>
-                    <span><strong>IMDb:</strong> <span class="text-warning fw-bold">9.5</span></span>
-                </div>
             </div>
         </div>
     </div>
@@ -101,49 +68,19 @@
                     <button type="button" class="btn-watch-now w-100" onclick="checkAuth('se7en.html')">ДИВИТИСЬ</button>
                 </div>
             </div>
-            <div class="col-md-9 mt-3 mt-md-0">
-                <h2 class="fw-bold mb-1">Сім <span class="text-muted fs-4">(1995)</span></h2>
+            <div class="col-md-9">
+                <h2 class="fw-bold">Сім <span class="text-muted fs-4">(1995)</span></h2>
                 <p class="text-info mb-2 small">Se7en</p>
-                
-                <div class="mb-3 d-flex align-items-center flex-wrap gap-2">
-                    <span class="badge border border-danger text-danger">18+</span>
-                    <span class="badge bg-warning text-dark"><i class="fas fa-star"></i> 8.6</span>
-                    <span class="badge bg-primary text-white px-2">Full HD</span>
-                    <span class="badge bg-primary-subtle text-primary border border-primary">Фільм</span>
-                </div>
-
-                <div class="row mb-3">
-                    <div class="col-sm-6">
-                        <ul class="list-unstyled small">
-                            <li class="mb-1"><span style="color: #00fbff;">Жанр:</span> Детектив, Трилер, Кримінал</li>
-                            <li class="mb-1"><span style="color: #00fbff;">Країна:</span> США</li>
-                            <li class="mb-1"><span style="color: #00fbff;">Режисер:</span> Девід Фінчер</li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6">
-                        <ul class="list-unstyled small">
-                            <li class="mb-1"><span style="color: #00fbff;">Тривалість:</span> 2 год 7 хв</li>
-                            <li class="mb-1"><span style="color: #00fbff;">Озвучка:</span> Українська (Дубляж)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <details open class="mb-3">
-                    <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
-                    <p class="text-secondary small">
-                        Детективна історія про сім смертних гріхів, яка змінила жанр трилера назавжди. Легендарна гра Бреда Пітта та Моргана Фрімена.
-                    </p>
-                </details>
-
+                <p class="text-secondary small">Детективна історія про сім смертних гріхів.</p>
                 <blockquote class="p-3 bg-black bg-opacity-25 border-start border-info border-3 italic" style="font-style: italic;">
-                    "Світ — прекрасне місце, і за нього варто боротися..."
+                    "Світ — прекрасне місце..."
                 </blockquote>
             </div>
         </div>
     </div>
 </div>
 
-<!-- МОДАЛЬНІ ВІКНА ТА СКРИПТИ -->
+<!-- МОДАЛЬНЕ ВІКНО ТРЕЙЛЕРА -->
 <div class="modal fade" id="trailerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-dark border-0">
@@ -156,15 +93,65 @@
     </div>
 </div>
 
-<!-- Модалки входу та реєстрації залишаються без змін -->
-<!-- ... (authModal, loginModal) ... -->
+<!-- МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ (authModal) -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-info">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-info">Реєстрація на SVATIK CINEMA</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="regForm">
+                    <div class="mb-3">
+                        <label class="form-label small">Ім'я</label>
+                        <input type="text" class="form-control bg-secondary border-0 text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Email</label>
+                        <input type="email" class="form-control bg-secondary border-0 text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Пароль</label>
+                        <input type="password" class="form-control bg-secondary border-0 text-white" required>
+                    </div>
+                    <button type="submit" class="btn btn-info w-100 fw-bold">ЗАРЕЄСТРУВАТИСЯ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-<!-- Скрипти перед закриваючим тегом </body> -->
+<!-- МОДАЛЬНЕ ВІКНО ВХОДУ (loginModal) -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content bg-dark text-white border-danger">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-danger">Вхід</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label small">Email</label>
+                        <input type="email" class="form-control bg-secondary border-0 text-white" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Пароль</label>
+                        <input type="password" class="form-control bg-secondary border-0 text-white" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 fw-bold">УВІЙТИ</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyC_HapnGpeNmu52ZGb5H4CzFAD7gFLWiS0",
@@ -177,14 +164,12 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
-    
-    // Робимо auth глобальним, щоб функція checkAuth його бачила
     window.auth = auth;
 
-    // Слідкуємо за станом входу для кнопок навігації
+    const loginBtn = document.getElementById('loginBtn');
+    const logoutBtn = document.getElementById('logoutBtn');
+
     onAuthStateChanged(auth, (user) => {
-        const loginBtn = document.getElementById('loginBtn');
-        const logoutBtn = document.getElementById('logoutBtn');
         if (user) {
             loginBtn.classList.add('d-none');
             logoutBtn.classList.remove('d-none');
@@ -193,34 +178,29 @@
             logoutBtn.classList.add('d-none');
         }
     });
+
+    logoutBtn.addEventListener('click', () => signOut(auth));
 </script>
 
 <script>
-    // Функція перевірки авторизації
     function checkAuth(page) {
-        // Перевіряємо, чи є авторизований користувач
         const user = window.auth ? window.auth.currentUser : null;
-
         if (user) {
-            // Якщо увійшов — переходимо до перегляду
             window.location.href = page;
         } else {
-            // Якщо не увійшов — виводимо вікно РЕЄСТРАЦІЇ (authModal)
+            // При натисканні "Дивитись" вилазить саме реєстрація
             const registrationModal = new bootstrap.Modal(document.getElementById('authModal'));
             registrationModal.show();
         }
     }
 
-    // Трейлер
+    // Логіка трейлера
     const trailerModal = document.getElementById('trailerModal');
     const trailerVideo = document.getElementById('trailerVideo');
-
     trailerModal.addEventListener('show.bs.modal', function (event) {
         const button = event.relatedTarget;
-        const videoUrl = button.getAttribute('data-video');
-        trailerVideo.src = videoUrl + "?autoplay=1";
+        trailerVideo.src = button.getAttribute('data-video') + "?autoplay=1";
     });
-
     trailerModal.addEventListener('hide.bs.modal', function () {
         trailerVideo.src = "";
     });
