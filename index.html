@@ -37,17 +37,15 @@
     <div class="main-row p-4 mb-5 rounded-4 shadow-lg" style="background: #16161a; border: 1px solid #333;">
         <div class="row">
             <div class="col-md-3 text-center">
-                <img src="https://image.tmdb.org/t/p/w342/oVLZtMcIjouOXBA2nz9tJHqrK4A.jpg" class="img-fluid rounded-4 shadow mb-3" alt="Breaking Bad">
-                <button class="btn btn-outline-info w-100 mb-2 fw-bold" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/SvrAA90yBvc">
-                    <i class="fas fa-film me-2"></i>ТРЕЙЛЕР
-                </button>
-                <button class="btn btn-danger w-100 fw-bold" onclick="checkAuth('watch.html')">
-                    <i class="fas fa-play me-2"></i>ДИВИТИСЬ
-                </button>
+                <div class="poster-box">
+                    <img src="https://image.tmdb.org/t/p/w342/oVLZtMcIjouOXBA2nz9tJHqrK4A.jpg" class="img-fluid rounded-4 shadow mb-3" alt="Breaking Bad">
+                    <button type="button" class="btn-neon-trailer w-100 mt-2" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/SvrAA90yBvc">ТРЕЙЛЕР</button>
+                    <button type="button" class="btn-watch-now w-100" onclick="checkAuth('watch.html')">ДИВИТИСЬ</button>
+                </div>
             </div>
             <div class="col-md-9 mt-3 mt-md-0">
                 <h2 class="fw-bold mb-1">
-                    <a href="watch.html" style="color: #fff; text-decoration: none;">Пуститися берега</a> 
+                    <a href="watch.html" style="color: #fff; text-decoration: none;" title="Перейти до перегляду">Пуститися берега</a> 
                     <span class="text-muted fs-4">(2008—2013)</span>
                 </h2>
                 <div class="mb-3 d-flex align-items-center flex-wrap gap-2">
@@ -87,54 +85,49 @@
     <div class="main-row p-4 mb-5 rounded-4 shadow-lg" style="background: #16161a; border: 1px solid #333;">
         <div class="row">
             <div class="col-md-3 text-center">
-                <div class="position-relative mb-3">
-                    <img src="https://i.kinobaza.com.ua/w300/656962f1ad9fe.jpg" class="img-fluid rounded-4 shadow" alt="Se7en">
-                    <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2 d-flex gap-1">
-                        <span class="badge bg-warning text-dark"><i class="fas fa-star"></i> 8.6</span>
-                        <span class="badge bg-primary text-white">Full HD</span>
-                    </div>
-                </div>
-                
-                <!-- Атмосферне відео без розсинхрону -->
-                <div class="rounded-3 overflow-hidden border border-secondary" style="position: relative; pointer-events: none;">
-                    <div class="ratio ratio-16x9">
-                        <iframe src="https://www.youtube.com/embed/znmZoVkCjpI?autoplay=1&mute=1&loop=1&playlist=znmZoVkCjpI&controls=0&modestbranding=1" frameborder="0"></iframe>
-                    </div>
+                <div class="poster-box">
+                    <img src="https://i.kinobaza.com.ua/w300/656962f1ad9fe.jpg" class="img-fluid rounded-4 shadow mb-3" alt="Se7en">
+                    <button type="button" class="btn-neon-trailer w-100 mt-2" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/znmZoVkCjpI">ТРЕЙЛЕР</button>
+                    <button type="button" class="btn-watch-now w-100" onclick="checkAuth('se7en.html')">ДИВИТИСЬ</button>
                 </div>
             </div>
             <div class="col-md-9 mt-3 mt-md-0">
-                <h1 class="fw-bold mb-1">Сім <span class="text-muted fs-4">(1995)</span></h1>
-                <p class="text-info mb-3">Se7en</p>
+                <h2 class="fw-bold mb-1">Сім <span class="text-muted fs-4">(1995)</span></h2>
+                <p class="text-info mb-2 small">Se7en</p>
                 
-                <p class="lead text-secondary" style="font-size: 1.1rem;">
-                    Детективна історія про сім смертних гріхів, яка змінила жанр трилера назавжди. Легендарна гра Бреда Пітта та Моргана Фрімена.
-                </p>
+                <div class="mb-3 d-flex align-items-center flex-wrap gap-2">
+                    <span class="badge border border-danger text-danger">18+</span>
+                    <span class="badge bg-warning text-dark"><i class="fas fa-star"></i> 8.6</span>
+                    <span class="badge bg-primary text-white px-2">Full HD</span>
+                    <span class="badge bg-primary-subtle text-primary border border-primary">Фільм</span>
+                </div>
 
-                <div class="row mt-4">
+                <div class="row mb-3">
                     <div class="col-sm-6 text-small">
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><strong>Жанр:</strong> <span class="text-muted ms-1">Детектив, Трилер, Кримінал</span></li>
-                            <li class="mb-2"><strong>Країна:</strong> <span class="text-muted ms-1">США</span></li>
-                            <li class="mb-2"><strong>Режисер:</strong> <span class="text-muted ms-1">Девід Фінчер</span></li>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><span style="color: #00fbff;">Жанр:</span> Детектив, Трилер, Кримінал</li>
+                            <li class="mb-1"><span style="color: #00fbff;">Країна:</span> США</li>
+                            <li class="mb-1"><span style="color: #00fbff;">Режисер:</span> Девід Фінчер</li>
                         </ul>
                     </div>
                     <div class="col-sm-6 text-small">
-                        <ul class="list-unstyled">
-                            <li class="mb-2"><strong>Тривалість:</strong> <span class="text-muted ms-1">2 год 7 хв</span></li>
-                            <li class="mb-2"><strong>Вік:</strong> <span class="badge border border-danger text-danger ms-1">18+</span></li>
-                            <li class="mb-2"><strong>Озвучка:</strong> <span class="text-muted ms-1">Українська (Дубляж)</span></li>
+                        <ul class="list-unstyled small">
+                            <li class="mb-1"><span style="color: #00fbff;">Тривалість:</span> 2 год 7 хв</li>
+                            <li class="mb-1"><span style="color: #00fbff;">Озвучка:</span> Українська (Дубляж)</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="mt-4">
-                    <button class="btn btn-outline-info me-2 fw-bold px-4" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/znmZoVkCjpI">
-                        <i class="fas fa-film me-2"></i> ДИВИТИСЬ ТРЕЙЛЕР
-                    </button>
-                    <button class="btn btn-danger fw-bold px-4 shadow" onclick="checkAuth('se7en.html')">
-                        <i class="fas fa-play me-2"></i> ПЕРЕЙТИ ДО ПЕРЕГЛЯДУ
-                    </button>
-                </div>
+                <details open class="mb-3">
+                    <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
+                    <p class="text-secondary small">
+                        Детективна історія про сім смертних гріхів, яка змінила жанр трилера назавжди. Легендарна гра Бреда Пітта та Моргана Фрімена.
+                    </p>
+                </details>
+
+                <blockquote class="p-3 bg-black bg-opacity-25 border-start border-info border-3 italic" style="font-style: italic;">
+                    "Світ — прекрасне місце, і за нього варто боротися..."
+                </blockquote>
             </div>
         </div>
     </div>
@@ -153,7 +146,7 @@
     </div>
 </div>
 
-<!-- МОДАЛЬНІ ВІКНА АВТОРИЗАЦІЇ -->
+<!-- МОДАЛЬНІ ВІКНА АВТОРИЗАЦІЇ (authModal, loginModal) -->
 <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content bg-dark text-white border-info">
@@ -233,7 +226,6 @@
 <script type="module" src="main.js"></script>
 
 <script>
-    // Скрипт для керування відео в модалці трейлера
     const trailerModal = document.getElementById('trailerModal');
     const trailerVideo = document.getElementById('trailerVideo');
 
