@@ -231,28 +231,22 @@
                 <p class="text-secondary small mb-4">Щоб отримати доступ до перегляду "Сім" та інших шедеврів, будь ласка, авторизуйтесь.</p>
                 
                 <!-- HTML ФОРМА -->
-                <form action="/auth_handler" method="POST">
-                    <div class="mb-3">
-                        <label for="userName" class="form-label small text-info">Ваше ім'я</label>
-                        <input type="text" class="form-control bg-dark text-white border-secondary" id="userName" name="user_name" placeholder="Святослав" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="userEmail" class="form-label small text-info">Електронна пошта</label>
-                        <input type="email" class="form-control bg-dark text-white border-secondary" id="userEmail" name="user_email" placeholder="example@mail.com" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="userPassword" class="form-label small text-info">Пароль</label>
-                        <input type="password" class="form-control bg-dark text-white border-secondary" id="userPassword" name="user_password" required>
-                    </div>
-                    <div class="form-check mb-4">
-                        <input class="form-check-box" type="checkbox" id="rememberMe">
-                        <label class="form-check-label text-muted small" for="rememberMe">Запам'ятати мене</label>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-info w-100 fw-bold py-2 shadow-sm">
-                        ЗАРЕЄСТРУВАТИСЯ ТА ДИВИТИСЯ
-                    </button>
-                </form>
+                <form id="registrationForm">
+    <div class="mb-3">
+        <label for="userName" class="form-label small text-info">Ваше ім'я</label>
+        <input type="text" class="form-control bg-dark text-white border-secondary" id="userName" placeholder="Святослав" required>
+    </div>
+    <div class="mb-3">
+        <label for="userEmail" class="form-label small text-info">Електронна пошта</label>
+        <input type="email" class="form-control bg-dark text-white border-secondary" id="userEmail" placeholder="example@mail.com" required>
+    </div>
+    
+    <!-- Кнопка з контейнером для анімації -->
+    <button type="submit" id="submitBtn" class="btn btn-info w-100 fw-bold py-2 shadow-sm d-flex justify-content-center align-items-center">
+        <span id="btnText">ЗАРЕЄСТРУВАТИСЯ ТА ДИВИТИСЯ</span>
+        <div id="btnSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"></div>
+    </button>
+</form>
             </div>
             <div class="modal-footer border-0 justify-content-center">
                 <p class="small text-muted">Вже маєте аккаунт? <a href="#" style="color: #ff0055; text-decoration: none;">Увійти</a></p>
