@@ -195,6 +195,35 @@
         trailerVideo.src = "";
     });
 </script>
+<script>
+    // Функція перевірки авторизації
+    function checkAuth(page) {
+        // Отримуємо поточного користувача через Firebase Auth
+        const user = window.auth.currentUser;
 
+        if (user) {
+            // Якщо користувач увійшов, перенаправляємо на сторінку фільму
+            window.location.href = page;
+        } else {
+            // Якщо не увійшов, показуємо модальне вікно входу
+            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+            loginModal.show();
+        }
+    }
+
+    // Керування відео в модалці трейлера
+    const trailerModal = document.getElementById('trailerModal');
+    const trailerVideo = document.getElementById('trailerVideo');
+
+    trailerModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const videoUrl = button.getAttribute('data-video');
+        trailerVideo.src = videoUrl + "?autoplay=1";
+    });
+
+    trailerModal.addEventListener('hide.bs.modal', function () {
+        trailerVideo.src = "";
+    });
+</script>
 </body>
 </html>
