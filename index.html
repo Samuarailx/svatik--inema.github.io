@@ -159,11 +159,12 @@
 <!-- Модалки входу та реєстрації залишаються без змін -->
 <!-- ... (authModal, loginModal) ... -->
 
+<!-- Скрипти перед закриваючим тегом </body> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
     const firebaseConfig = {
         apiKey: "AIzaSyC_HapnGpeNmu52ZGb5H4CzFAD7gFLWiS0",
@@ -176,42 +177,41 @@
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
+    
+    // Робимо auth глобальним, щоб функція checkAuth його бачила
     window.auth = auth;
-</script>
 
-<script type="module" src="main.js"></script>
-
-<script>
-    const trailerModal = document.getElementById('trailerModal');
-    const trailerVideo = document.getElementById('trailerVideo');
-
-    trailerModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget;
-        const videoUrl = button.getAttribute('data-video');
-        trailerVideo.src = videoUrl + "?autoplay=1";
-    });
-
-    trailerModal.addEventListener('hide.bs.modal', function () {
-        trailerVideo.src = "";
+    // Слідкуємо за станом входу для кнопок навігації
+    onAuthStateChanged(auth, (user) => {
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+        if (user) {
+            loginBtn.classList.add('d-none');
+            logoutBtn.classList.remove('d-none');
+        } else {
+            loginBtn.classList.remove('d-none');
+            logoutBtn.classList.add('d-none');
+        }
     });
 </script>
+
 <script>
     // Функція перевірки авторизації
     function checkAuth(page) {
-        // Отримуємо поточного користувача через Firebase Auth
-        const user = window.auth.currentUser;
+        // Перевіряємо, чи є авторизований користувач
+        const user = window.auth ? window.auth.currentUser : null;
 
         if (user) {
-            // Якщо користувач увійшов, перенаправляємо на сторінку фільму
+            // Якщо увійшов — переходимо до перегляду
             window.location.href = page;
         } else {
-            // Якщо не увійшов, показуємо модальне вікно входу
-            const loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
-            loginModal.show();
+            // Якщо не увійшов — виводимо вікно РЕЄСТРАЦІЇ (authModal)
+            const registrationModal = new bootstrap.Modal(document.getElementById('authModal'));
+            registrationModal.show();
         }
     }
 
-    // Керування відео в модалці трейлера
+    // Трейлер
     const trailerModal = document.getElementById('trailerModal');
     const trailerVideo = document.getElementById('trailerVideo');
 
