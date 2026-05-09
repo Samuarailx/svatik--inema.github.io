@@ -71,8 +71,8 @@
     <span class="btn-content">ТРЕЙЛЕР</span>
 </button>
 
-            <!-- Кнопка тепер не веде на посилання, а відкриває модалку -->
-<button type="button" class="btn-watch-now w-100" data-bs-toggle="modal" data-bs-target="#authModal">
+            <<!-- Кнопка для Пуститися берега -->
+<button type="button" class="btn-watch-now w-100" onclick="handleWatchClick('watch.html')">
     <i class="fa fa-tv me-1"></i> ДИВИТИСЬ
 </button>
 
@@ -158,8 +158,8 @@
             <span class="btn-content">ТРЕЙЛЕР</span>
         </button>
 
-        <!-- Кнопка тепер не веде на посилання, а відкриває модалку -->
-<button type="button" class="btn-watch-now w-100" data-bs-toggle="modal" data-bs-target="#authModal">
+   <!-- Кнопка для Сім -->
+<button type="button" class="btn-watch-now w-100" onclick="handleWatchClick('se7en.html')">
     <i class="fa fa-tv me-1"></i> ДИВИТИСЬ
 </button>
 
@@ -218,68 +218,35 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="main.js"></script>
      <!-- МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ -->
-<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-white" style="background: #16161a; border: 2px solid #00fbff; border-radius: 20px;">
-            <div class="modal-header border-0">
-                <h5 class="modal-title fw-bold" id="authModalLabel">
-                    <span style="color: #00fbff;">SVATIK</span> CINEMA | Вхід
-                </h5>
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal-body p-4">
+    <div id="authContent">
+        <h5 id="formTitle" class="text-info mb-3">Реєстрація</h5>
+        <form id="registrationForm">
+            <div class="mb-3" id="nameField">
+                <label class="form-label small">Ваше ім'я</label>
+                <input type="text" class="form-control bg-dark text-white border-secondary" id="userName" placeholder="Святослав">
             </div>
-            <div class="modal-body p-4">
-                <p class="text-secondary small mb-4">Щоб отримати доступ до перегляду "Сім" та інших шедеврів, будь ласка, авторизуйтесь.</p>
-                
-                <!-- HTML ФОРМА -->
-                <form id="registrationForm">
-    <div class="mb-3">
-        <label for="userName" class="form-label small text-info">Ваше ім'я</label>
-        <input type="text" class="form-control bg-dark text-white border-secondary" id="userName" placeholder="Святослав" required>
-    </div>
-    <div class="mb-3">
-        <label for="userEmail" class="form-label small text-info">Електронна пошта</label>
-        <input type="email" class="form-control bg-dark text-white border-secondary" id="userEmail" placeholder="example@mail.com" required>
-    </div>
-    
-    <!-- Кнопка з контейнером для анімації -->
-    <button type="submit" id="submitBtn" class="btn btn-info w-100 fw-bold py-2 shadow-sm d-flex justify-content-center align-items-center">
-        <span id="btnText">ЗАРЕЄСТРУВАТИСЯ ТА ДИВИТИСЯ</span>
-        <div id="btnSpinner" class="spinner-border spinner-border-sm ms-2 d-none" role="status"></div>
-    </button>
-</form>
+            <div class="mb-3">
+                <label class="form-label small">Електронна пошта</label>
+                <input type="email" class="form-control bg-dark text-white border-secondary" id="userEmail" required>
             </div>
-            <div class="modal-footer border-0 justify-content-center">
-                <p class="small text-muted">Вже маєте аккаунт? <a href="#" style="color: #ff0055; text-decoration: none;">Увійти</a></p>
+            <div class="mb-3">
+                <label class="form-label small">Пароль</label>
+                <input type="password" class="form-control bg-dark text-white border-secondary" required>
             </div>
+            
+            <button type="submit" id="submitBtn" class="btn btn-info w-100 fw-bold py-2 mt-3 d-flex justify-content-center align-items-center">
+                <span id="btnText">ПІДТВЕРДИТИ</span>
+                <div id="btnSpinner" class="spinner-border spinner-border-sm ms-2 d-none"></div>
+            </button>
+        </form>
+        
+        <div class="text-center mt-3">
+            <a href="#" id="toggleAuth" class="small text-muted" style="text-decoration: none;">
+                Вже маєте аккаунт? <span style="color: #ff0055;">Увійти</span>
+            </a>
         </div>
     </div>
 </div>
-     <script>
-document.getElementById('registrationForm').addEventListener('submit', function(e) {
-    // 1. Зупиняємо стандартне надсилання форми (щоб не було помилки)
-    e.preventDefault();
-
-    const btn = document.getElementById('submitBtn');
-    const btnText = document.getElementById('btnText');
-    const btnSpinner = document.getElementById('btnSpinner');
-
-    // 2. Анімація: міняємо текст і показуємо спіннер завантаження
-    btn.classList.replace('btn-info', 'btn-success');
-    btnText.innerText = 'ПЕРЕВІРКА ДАНИХ...';
-    btnSpinner.classList.remove('d-none');
-    btn.disabled = true;
-
-    // 3. Імітуємо затримку сервера (наприклад, 2 секунди)
-    setTimeout(() => {
-        btnText.innerText = 'УСПІШНО! ПЕРЕХОДИМО...';
-        
-        // 4. Фінальний перехід на сторінку фільму
-        setTimeout(() => {
-            window.location.href = 'se7en.html';
-        }, 1000);
-        
-    }, 2000);
-});
-</script>
 </body>
 </html>
