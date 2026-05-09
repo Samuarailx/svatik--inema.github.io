@@ -16,13 +16,13 @@
 
 <!-- Шапка сайту -->
 <nav class="navbar navbar-expand-lg navbar-dark p-3" style="background: rgba(22, 22, 26, 0.9); border-bottom: 1px solid #ff0055;">
-    <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html" style="color: #00fbff;">SVATIK-CINEMA</a>
-        <div class="navbar-nav ms-auto">
-            <a class="nav-link active me-3" href="index.html">Головна</a>
-            <button class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">УВІЙТИ</button>
-        </div>
-    </div>
+<div class="navbar-nav ms-auto">
+    <a class="nav-link active me-3" href="index.html">Головна</a>
+    <!-- Додано id="loginBtn" -->
+    <button id="loginBtn" class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">УВІЙТИ</button>
+    <!-- Нова кнопка "Вийти", яка спочатку прихована класом d-none -->
+    <button id="logoutBtn" class="btn btn-outline-secondary btn-sm fw-bold d-none" onclick="logout()">ВИЙТИ</button>
+</div>
 </nav>
 
 <header class="container mt-5 text-center">
