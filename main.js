@@ -6,12 +6,11 @@ import {
     onAuthStateChanged 
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-// Чекаємо завантаження сторінки
+// 1. ЛОГІКА ТРЕЙЛЕРІВ (працює завжди)
 document.addEventListener('DOMContentLoaded', function () {
     const trailerModal = document.getElementById('trailerModal');
     const videoIframe = document.getElementById('trailerVideo');
 
-    // Логіка трейлерів (працює завжди)
     if (trailerModal) {
         trailerModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
@@ -29,12 +28,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
 let pendingPage = "";
 
-// Функція перевірки для кнопки "ДИВИТИСЬ"
+// 2. ФУНКЦІЯ ЧЕКАЙ-І-ПЕРЕВІРЯЙ (Головне виправлення)
+const initApp = () => {
+    // Якщо Firebase ще не встиг покласти 'auth' у window, чекаємо 100мс і пробуємо знову
+    if (!window.auth) {
+        setTimeout(initApp, 100);
+        return;
+    }
+
+    const auth = window.auth;
+
+    // --- СЛІДКУЄМО ЗА СТАНОМ КОРИСТУВАЧА ---
+    onAuthStateChanged(auth, (user) => {
+        const loginBtn = document.getElementById('loginBtn');
+        const logoutBtn = document.getElementById('logoutBtn');
+
+        if (user) {
+            if (loginBtn) loginBtn.classList.add('d-none');
+            if (logoutBtn) logoutBtn.classList.remove('d-none');
+            console.log("Авторизовано:", user.email);
+        } else {
+            if (loginBtn) loginBtn.classList.remove('d-none');
+            if (logoutBtn) logoutBtn.classList.add('d-none');
+            console.log("Не авторизовано");
+        }
+    });
+
+    // --- РЕЄСТРАЦІЯ ---
+    const regForm = document.getElementById('regForm');
+    if (regForm) {
+        regForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    alert("Акаунт створено у хмарі Google!");
+                    window.location.href = pendingPage || 'index.html';
+                })
+                .catch((error) => alert("Помилка реєстрації: " + error.message));
+        });
+    }
+
+    // --- ВХІД ---
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            const password = this.querySelector('input[type="password"]').value;
+
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    alert("Ви успішно увійшли!");
+                    window.location.href = pendingPage || 'index.html';
+                })
+                .catch((error) => alert("Помилка входу: " + error.message));
+        });
+    }
+};
+
+// Запускаємо ініціалізацію
+initApp();
+
+// 3. ГЛОБАЛЬНІ ФУНКЦІЇ ДЛЯ HTML (onclick)
 window.checkAuth = function(page) {
     pendingPage = page;
-    const user = window.auth.currentUser;
-
-    if (user) {
+    if (window.auth && window.auth.currentUser) {
         window.location.href = page;
     } else {
         const regModal = new bootstrap.Modal(document.getElementById('authModal'));
@@ -42,56 +103,10 @@ window.checkAuth = function(page) {
     }
 };
 
-// --- РЕЄСТРАЦІЯ ЧЕРЕЗ FIREBASE ---
-document.getElementById('regForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = this.querySelector('input[type="email"]').value;
-    const password = this.querySelector('input[type="password"]').value;
-
-    createUserWithEmailAndPassword(window.auth, email, password)
-        .then(() => {
-            alert("Акаунт створено у хмарі Google!");
-            window.location.href = pendingPage || 'index.html';
-        })
-        .catch((error) => {
-            alert("Помилка реєстрації: " + error.message);
-        });
-});
-
-// --- ВХІД ЧЕРЕЗ FIREBASE ---
-document.getElementById('loginForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const email = this.querySelector('input[type="email"]').value;
-    const password = this.querySelector('input[type="password"]').value;
-
-    signInWithEmailAndPassword(window.auth, email, password)
-        .then(() => {
-            alert("Ви успішно увійшли!");
-            window.location.href = pendingPage || 'index.html';
-        })
-        .catch((error) => {
-            alert("Помилка входу: " + error.message);
-        });
-});
-
-// --- ВИХІД ---
 window.logout = function() {
-    signOut(window.auth).then(() => {
-        window.location.reload();
-    });
-};
-
-// --- СЛІДКУЄМО ЗА СТАНОМ КОРИСТУВАЧА ---
-// Firebase сам скаже нам, чи залогінений юзер, навіть після оновлення сторінки
-onAuthStateChanged(window.auth, (user) => {
-    const loginBtn = document.getElementById('loginBtn');
-    const logoutBtn = document.getElementById('logoutBtn');
-
-    if (user) {
-        if (loginBtn) loginBtn.classList.add('d-none');
-        if (logoutBtn) logoutBtn.classList.remove('d-none');
-    } else {
-        if (loginBtn) loginBtn.classList.remove('d-none');
-        if (logoutBtn) logoutBtn.classList.add('d-none');
+    if (window.auth) {
+        signOut(window.auth).then(() => {
+            window.location.reload();
+        });
     }
-});
+};
