@@ -216,5 +216,48 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="main.js"></script>
+     <!-- МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ -->
+<div class="modal fade" id="authModal" tabindex="-1" aria-labelledby="authModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content text-white" style="background: #16161a; border: 2px solid #00fbff; border-radius: 20px;">
+            <div class="modal-header border-0">
+                <h5 class="modal-title fw-bold" id="authModalLabel">
+                    <span style="color: #00fbff;">SVATIK</span> CINEMA | Вхід
+                </h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <p class="text-secondary small mb-4">Щоб отримати доступ до перегляду "Сім" та інших шедеврів, будь ласка, авторизуйтесь.</p>
+                
+                <!-- HTML ФОРМА -->
+                <form action="/auth_handler" method="POST">
+                    <div class="mb-3">
+                        <label for="userName" class="form-label small text-info">Ваше ім'я</label>
+                        <input type="text" class="form-control bg-dark text-white border-secondary" id="userName" name="user_name" placeholder="Святослав" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userEmail" class="form-label small text-info">Електронна пошта</label>
+                        <input type="email" class="form-control bg-dark text-white border-secondary" id="userEmail" name="user_email" placeholder="example@mail.com" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="userPassword" class="form-label small text-info">Пароль</label>
+                        <input type="password" class="form-control bg-dark text-white border-secondary" id="userPassword" name="user_password" required>
+                    </div>
+                    <div class="form-check mb-4">
+                        <input class="form-check-box" type="checkbox" id="rememberMe">
+                        <label class="form-check-label text-muted small" for="rememberMe">Запам'ятати мене</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-info w-100 fw-bold py-2 shadow-sm">
+                        ЗАРЕЄСТРУВАТИСЯ ТА ДИВИТИСЯ
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer border-0 justify-content-center">
+                <p class="small text-muted">Вже маєте аккаунт? <a href="#" style="color: #ff0055; text-decoration: none;">Увійти</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
