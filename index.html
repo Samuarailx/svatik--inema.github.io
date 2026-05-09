@@ -19,23 +19,25 @@
             color: #e0e0e0;
             font-family: sans-serif;
         }
-        .btn-neon-trailer {
-            background: transparent;
-            border: 1px solid #ff0055;
-            color: white;
-            padding: 10px;
-            margin-bottom: 5px;
+        .main-row {
+            background: #16161a; 
+            border-radius: 15px; 
+            border: 1px solid #2d2d35;
             transition: 0.3s;
         }
-        .btn-neon-trailer:hover { box-shadow: 0 0 15px #ff0055; }
-        .btn-watch-now {
-            background: #ff0055;
-            border: none;
-            color: white;
-            padding: 10px;
-            font-weight: bold;
+        .btn-neon-trailer {
+            background: transparent; border: 1px solid #ff0055; color: white;
+            padding: 10px; margin-bottom: 5px; transition: 0.3s;
         }
-        .pointer { cursor: pointer; }
+        .btn-neon-trailer:hover { box-shadow: 0 0 15px #ff0055; background: #ff0055; }
+        .btn-watch-now {
+            background: #ff0055; border: none; color: white;
+            padding: 10px; font-weight: bold; transition: 0.3s;
+        }
+        .btn-watch-now:hover { background: #ff3377; transform: scale(1.02); }
+        .modal-content { background: #16161a; border: 2px solid #00fbff; border-radius: 20px; color: white; }
+        .form-control { background: #1f1f23; border: 1px solid #333; color: white; }
+        .form-control:focus { background: #25252b; color: white; border-color: #00fbff; box-shadow: none; }
     </style>
 </head>
 <body>
@@ -44,7 +46,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark p-3" style="background: rgba(22, 22, 26, 0.9); border-bottom: 1px solid #ff0055;">
     <div class="container">
         <a class="navbar-brand fw-bold" href="index.html" style="color: #00fbff;">SVATIK-CINEMA</a>
-        <div class="navbar-nav">
+        <div class="navbar-nav ms-auto">
             <a class="nav-link active" href="index.html">Головна</a>
         </div>
     </div>
@@ -54,45 +56,173 @@
     <h1 style="color: #00fbff; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">
         Лук'яненко Святослав Русланович
     </h1>
-    <div class="mt-4" style="max-width: 800px; margin: 0 auto;">
-        <p style="font-size: 1.2rem;">Ласкаво просимо! Це мій особистий топ найкращих фільмів та серіалів.</p>
-    </div>
 </header>
 
 <div class="container mt-5 mb-5">
-    <!-- КАРТКА 1: Пуститися берега -->
-    <div class="main-row align-items-start p-4 mb-4" style="background: #16161a; border-radius: 15px; border: 1px solid #2d2d35; display: flex;">
-        <div class="poster-box" style="flex: 0 0 220px;">
-            <img src="https://image.tmdb.org/t/p/w342/oVLZtMcIjouOXBA2nz9tJHqrK4A.jpg" class="img-fluid rounded-top shadow" alt="Постер">
-            <button type="button" class="btn-neon-trailer w-100" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/SvrAA90yBvc">ТРЕЙЛЕР</button>
-            <button type="button" class="btn-watch-now w-100" data-bs-toggle="modal" data-bs-target="#authModal" data-movie="watch.html">ДИВИТИСЬ</button>
-        </div>
-        <div class="ms-4 flex-grow-1">
-            <h2 class="h3 mb-1 fw-bold">Пуститися берега <span class="text-muted fw-light">(2008—2013)</span></h2>
+    <!-- КАРТКА: Пуститися берега -->
+    <div class="ms-4 flex-grow-1">
+            <h2 class="h3 mb-1 fw-bold">
+                <a href="watch.html" style="color: #fff; text-decoration: none;" title="Перейти до перегляду">Пуститися берега</a> 
+                <span class="text-muted fw-light">(2008—2013)</span>
+            </h2>
+            
             <div class="mb-3">
                 <span class="badge border text-muted">18+</span>
-                <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Серіал</span>
+                <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Серіал / Фільм</span>
+                <span class="ms-3" style="font-size: 0.8rem; color: #555;">
+                    <del>Попсове кіно</del> <ins>Легендарна історія</ins>
+                </span>
             </div>
-            <p class="text-secondary small">Історія про вчителя хімії Волтера Вайта.</p>
-            <blockquote class="mt-4" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">"Я і є небезпека!"</blockquote>
+
+            <div class="small mb-3">
+                <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> драма, трилер, кримінал</div>
+                <div class="mb-1"><span style="color: #00fbff;">Хімія:</span> C<sub>10</sub>H<sub>15</sub>N <sup>(чистота 99%)</sup></div>
+            </div>
+
+            <div style="max-width: 600px;">
+                <details open>
+                    <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
+                    <p class="text-secondary small">
+                        Це історія про вчителя, який вирішив піти проти системи. 
+                        <strong>Волтер Вайт</strong> доводить, що навіть найдобріша людина може стати небезпечною.
+                    </p>
+                </details>
+            </div>
+
+            <!-- 5. Цитата -->
+            <blockquote class="mt-4" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">
+                "Я не в небезпеці, Скайлер. Я і є небезпека!"
+            </blockquote>
+
+            <div class="mt-4">
+                <span class="me-4"><strong>КіноБаза:</strong> <span style="color: #00ff88;">9.0</span></span>
+                <span><strong>IMDb:</strong> <span style="color: #ffcc00;">9.5</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- КАРТКА: Сім -->
+  <div class="main-row align-items-start p-4 mb-4" style="background: #16161a; border-radius: 15px; border: 1px solid #2d2d35; display: flex;">
+    
+    <div class="poster-box" style="flex: 0 0 220px;">
+        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/69SBoxZLDY9vSnv3pZpZ9v6tS6S.jpg" class="img-fluid rounded-top shadow" alt="Сім Постер">
+        
+        <button type="button" class="btn-neon-trailer w-100" 
+                data-bs-toggle="modal" 
+                data-bs-target="#trailerModal" 
+                data-video="https://www.youtube.com/embed/znmZoVkCjpI">
+            <span class="btn-content">ТРЕЙЛЕР</span>
+        </button>
+
+        <a href="se7en.html" class="btn-watch-now w-100">
+            <i class="fa fa-tv me-1"></i> ДИВИТИСЬ
+        </a>
+
+        <div class="d-flex border border-top-0 rounded-bottom text-center py-2 bg-dark">
+            <div class="col pointer text-muted"><i class="far fa-star"></i></div>
+            <div class="col pointer text-muted"><i class="far fa-heart"></i></div>
+            <div class="col pointer text-muted"><i class="far fa-eye"></i></div>
         </div>
     </div>
 
-    <!-- КАРТКА 2: Сім -->
-    <div class="main-row align-items-start p-4 mb-4" style="background: #16161a; border-radius: 15px; border: 1px solid #2d2d35; display: flex;">
-        <div class="poster-box" style="flex: 0 0 220px;">
-            <img src="https://i.kinobaza.com.ua/w300/656962f1ad9fe.jpg" class="img-fluid rounded-top shadow" alt="Сім Постер">
-            <button type="button" class="btn-neon-trailer w-100" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/znmZoVkCjpI">ТРЕЙЛЕР</button>
-            <button type="button" class="btn-watch-now w-100" data-bs-toggle="modal" data-bs-target="#authModal" data-movie="se7en.html">ДИВИТИСЬ</button>
+    <div class="ms-4 flex-grow-1">
+        <h2 class="h3 mb-1 fw-bold">
+            <a href="se7en.html" style="color: #fff; text-decoration: none;">Сім</a> 
+            <span class="text-muted fw-light">(1995)</span>
+        </h2>
+        
+        <div class="mb-3 d-flex align-items-center flex-wrap">
+            <span class="badge border text-muted">18+</span>
+            <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Фільм</span>
+            <span class="badge bg-warning text-dark ms-2">Топ #42</span>
+            <span class="ms-3" style="font-size: 0.8rem; color: #555;">
+                <del>Простий детектив</del> <ins>Культовий трилер</ins>
+            </span>
         </div>
-        <div class="ms-4 flex-grow-1">
-            <h2 class="h3 mb-1 fw-bold">Сім <span class="text-muted fw-light">(1995)</span></h2>
-            <p class="text-secondary small">Детектив про сім смертних гріхів.</p>
-            <div class="atmosphere-video mt-3" style="max-width: 280px; border: 2px solid #00fbff; border-radius: 20px; overflow: hidden;">
-                <video width="100%" height="auto" controls loop muted>
-                    <source src="Video/Savetik_1778330628.mp4" type="video/mp4">
-                </video>
-            </div>
+
+        <div class="small mb-3">
+            <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> кримінальний, драма, детектив, трилер</div>
+            <div class="mb-1"><span style="color: #00fbff;">Локація:</span> США (Похмуре місто без назви)</div>
+        </div>
+
+        <div style="max-width: 600px;">
+            <details open>
+                <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
+                <p class="text-secondary small">
+                    Детектив-ветеран Вільям Сомерсет, який мріє про спокій, змушений об'єднатися з молодим напарником Девідом Міллзом. Вони полюють на серійного вбивцю, який карає своїх жертв за <strong>сім смертних гріхів</strong>. Кожна сцена — це пазл, фінал якого шокує назавжди.
+                </p>
+            </details>
+        </div>
+
+        <blockquote class="mt-4" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">
+            "Ернест Гемінґвей писав: «Світ — прекрасне місце, і за нього варто боротися». З другою частиною я згоден."
+        </blockquote>
+
+        <div class="mt-4">
+            <span class="me-4"><strong>КіноБаза:</strong> <span style="color: #00ff88;">8.4</span></span>
+            <span><strong>IMDb:</strong> <span style="color: #ffcc00;">8.6</span></span>
+        </div>
+    </div>
+</div><div class="main-row align-items-start p-4 mb-4" style="background: #16161a; border-radius: 15px; border: 1px solid #2d2d35; display: flex;">
+    
+    <div class="poster-box" style="flex: 0 0 220px;">
+        <img src="https://image.tmdb.org/t/p/w600_and_h900_bestv2/69SBoxZLDY9vSnv3pZpZ9v6tS6S.jpg" class="img-fluid rounded-top shadow" alt="Сім Постер">
+        
+        <button type="button" class="btn-neon-trailer w-100" 
+                data-bs-toggle="modal" 
+                data-bs-target="#trailerModal" 
+                data-video="https://www.youtube.com/embed/znmZoVkCjpI">
+            <span class="btn-content">ТРЕЙЛЕР</span>
+        </button>
+
+        <a href="se7en.html" class="btn-watch-now w-100">
+            <i class="fa fa-tv me-1"></i> ДИВИТИСЬ
+        </a>
+
+        <div class="d-flex border border-top-0 rounded-bottom text-center py-2 bg-dark">
+            <div class="col pointer text-muted"><i class="far fa-star"></i></div>
+            <div class="col pointer text-muted"><i class="far fa-heart"></i></div>
+            <div class="col pointer text-muted"><i class="far fa-eye"></i></div>
+        </div>
+    </div>
+
+    <div class="ms-4 flex-grow-1">
+        <h2 class="h3 mb-1 fw-bold">
+            <a href="se7en.html" style="color: #fff; text-decoration: none;">Сім</a> 
+            <span class="text-muted fw-light">(1995)</span>
+        </h2>
+        
+        <div class="mb-3 d-flex align-items-center flex-wrap">
+            <span class="badge border text-muted">18+</span>
+            <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Фільм</span>
+            <span class="badge bg-warning text-dark ms-2">Топ #42</span>
+            <span class="ms-3" style="font-size: 0.8rem; color: #555;">
+                <del>Простий детектив</del> <ins>Культовий трилер</ins>
+            </span>
+        </div>
+
+        <div class="small mb-3">
+            <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> кримінальний, драма, детектив, трилер</div>
+            <div class="mb-1"><span style="color: #00fbff;">Локація:</span> США (Похмуре місто без назви)</div>
+        </div>
+
+        <div style="max-width: 600px;">
+            <details open>
+                <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
+                <p class="text-secondary small">
+                    Детектив-ветеран Вільям Сомерсет, який мріє про спокій, змушений об'єднатися з молодим напарником Девідом Міллзом. Вони полюють на серійного вбивцю, який карає своїх жертв за <strong>сім смертних гріхів</strong>. Кожна сцена — це пазл, фінал якого шокує назавжди.
+                </p>
+            </details>
+        </div>
+
+        <blockquote class="mt-4" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">
+            "Ернест Гемінґвей писав: «Світ — прекрасне місце, і за нього варто боротися». З другою частиною я згоден."
+        </blockquote>
+
+        <div class="mt-4">
+            <span class="me-4"><strong>КіноБаза:</strong> <span style="color: #00ff88;">8.4</span></span>
+            <span><strong>IMDb:</strong> <span style="color: #ffcc00;">8.6</span></span>
         </div>
     </div>
 </div>
@@ -101,9 +231,6 @@
 <div class="modal fade" id="trailerModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content bg-dark border-0">
-            <div class="modal-header border-0 pb-0">
-                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-            </div>
             <div class="modal-body p-0">
                 <div class="ratio ratio-16x9">
                     <iframe id="trailerVideo" src="" frameborder="0" allowfullscreen></iframe>
@@ -113,91 +240,103 @@
     </div>
 </div>
 
-<!-- МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ (ОСЬ ТУТ БУЛА ПОМИЛКА - ТЕПЕР ВИПРАВЛЕНО) -->
+<!-- МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ -->
 <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content text-white" style="background: #16161a; border: 2px solid #00fbff; border-radius: 20px;">
+        <div class="modal-content">
             <div class="modal-header border-0">
-                <h5 class="modal-title" id="formTitle">Реєстрація</h5>
+                <h5 class="modal-title text-info">Реєстрація</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body p-4">
-                <form id="registrationForm">
-                    <div class="mb-3" id="nameField">
+            <div class="modal-body">
+                <form id="regForm">
+                    <div class="mb-3">
                         <label class="form-label small">Ваше ім'я</label>
-                        <input type="text" class="form-control bg-dark text-white border-secondary" id="userName" placeholder="Святослав">
+                        <input type="text" class="form-control" id="regName" required>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label small">Електронна пошта</label>
-                        <input type="email" class="form-control bg-dark text-white border-secondary" required>
+                        <label class="form-label small">Email</label>
+                        <input type="email" class="form-control" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label small">Пароль</label>
-                        <input type="password" class="form-control bg-dark text-white border-secondary" required>
+                        <input type="password" class="form-control" required>
                     </div>
-                    <button type="submit" id="submitBtn" class="btn btn-info w-100 fw-bold py-2 mt-3">
-                        ПІДТВЕРДИТИ
-                    </button>
+                    <button type="submit" class="btn btn-info w-100 fw-bold text-white">ПІДТВЕРДИТИ</button>
+                </form>
+                <div class="text-center mt-3">
+                    <span class="small text-muted">Вже маєте аккаунт?</span> 
+                    <a href="#" class="small text-danger fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal" style="text-decoration:none;">Увійти</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- МОДАЛЬНЕ ВІКНО ВХОДУ (ОКРЕМЕ) -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content" style="border-color: #ff0055;">
+            <div class="modal-header border-0">
+                <h5 class="modal-title text-danger">Вхід</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label class="form-label small">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label small">Пароль</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-danger w-100 fw-bold">УВІЙТИ</button>
                 </form>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ПІДКЛЮЧЕННЯ СКРИПТІВ -->
+<!-- СКРИПТИ -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Логіка для Трейлерів (щоб відео зупинялося при закритті)
-    const trailerModal = document.getElementById('trailerModal');
-    const trailerVideo = document.getElementById('trailerVideo');
-    
-    trailerModal.addEventListener('show.bs.modal', function(event) {
-        const button = event.relatedTarget;
-        const videoUrl = button.getAttribute('data-video');
-        trailerVideo.src = videoUrl;
-    });
+    let pendingPage = "";
 
-    trailerModal.addEventListener('hide.bs.modal', function() {
-        trailerVideo.src = "";
-    });
-
-    // 2. Логіка для кнопок "Дивитись"
-    const watchButtons = document.querySelectorAll('.btn-watch-now');
-    
-    watchButtons.forEach(button => {
-        button.addEventListener('click', function(e) {
-            const targetPage = this.getAttribute('data-movie');
-            const isLoggedIn = localStorage.getItem('isUserLoggedIn');
-
-            if (isLoggedIn === 'true') {
-                e.preventDefault();
-                window.location.href = targetPage;
-            } else {
-                localStorage.setItem('pendingMovie', targetPage);
-            }
-        });
-    });
-
-    // 3. Обробка форми
-    const regForm = document.getElementById('registrationForm');
-    if (regForm) {
-        regForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            localStorage.setItem('isUserLoggedIn', 'true');
-            const nextStep = localStorage.getItem('pendingMovie') || 'index.html';
-            
-            const btn = document.getElementById('submitBtn');
-            btn.innerHTML = 'УСПІШНО! ПЕРЕХОДИМО...';
-            btn.style.background = '#00ff88';
-
-            setTimeout(() => {
-                window.location.href = nextStep;
-            }, 1000);
-        });
+    // Перевірка входу
+    function checkAuth(page) {
+        pendingPage = page;
+        if (localStorage.getItem('isLogged') === 'true') {
+            window.location.href = page;
+        } else {
+            const regModal = new bootstrap.Modal(document.getElementById('authModal'));
+            regModal.show();
+        }
     }
-});
+
+    // Реєстрація
+    document.getElementById('regForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('isLogged', 'true');
+        window.location.href = pendingPage || 'index.html';
+    });
+
+    // Вхід
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('isLogged', 'true');
+        window.location.href = pendingPage || 'index.html';
+    });
+
+    // Трейлери
+    const trailerModal = document.getElementById('trailerModal');
+    trailerModal.addEventListener('show.bs.modal', function(e) {
+        document.getElementById('trailerVideo').src = e.relatedTarget.getAttribute('data-video');
+    });
+    trailerModal.addEventListener('hide.bs.modal', function() {
+        document.getElementById('trailerVideo').src = "";
+    });
 </script>
+
 </body>
 </html>
