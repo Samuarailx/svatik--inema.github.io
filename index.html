@@ -3,106 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Топ фільмів та серіалів - Лук'яненко Святослав</title>
+    <title>SVATIK CINEMA - Топ фільмів та серіалів</title>
     <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/705/705062.png">
     
     <!-- Bootstrap та Іконки -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-
 </head>
-<body>
+<body style="background-color: #0b0b0d; color: #ffffff; font-family: 'Segoe UI', Roboto, sans-serif;">
 
 <!-- Шапка сайту -->
-<nav class="navbar navbar-expand-lg navbar-dark p-3" style="background: rgba(22, 22, 26, 0.9); border-bottom: 1px solid #ff0055;">
-<div class="navbar-nav ms-auto">
-    <a class="nav-link active me-3" href="index.html">Головна</a>
-    <!-- Додано id="loginBtn" -->
-    <button id="loginBtn" class="btn btn-outline-info btn-sm fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal">УВІЙТИ</button>
-    <!-- Нова кнопка "Вийти", яка спочатку прихована класом d-none -->
-    <button id="logoutBtn" class="btn btn-outline-secondary btn-sm fw-bold d-none" onclick="logout()">ВИЙТИ</button>
-</div>
+<nav class="navbar navbar-expand-lg navbar-dark p-3 sticky-top" style="background: rgba(22, 22, 26, 0.95); border-bottom: 2px solid #ff0055; backdrop-filter: blur(10px);">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html" style="color: #ff0055; letter-spacing: 1px;">SVATIK <span style="color: #00fbff;">CINEMA</span></a>
+        <div class="navbar-nav ms-auto align-items-center">
+            <a class="nav-link active me-3" href="index.html">Головна</a>
+            <button id="loginBtn" class="btn btn-outline-info btn-sm fw-bold px-3" data-bs-toggle="modal" data-bs-target="#loginModal">УВІЙТИ</button>
+            <button id="logoutBtn" class="btn btn-outline-secondary btn-sm fw-bold d-none" onclick="logout()">ВИЙТИ</button>
+        </div>
+    </div>
 </nav>
 
 <header class="container mt-5 text-center">
-    <h1 style="color: #00fbff; font-weight: 900; text-transform: uppercase; letter-spacing: 2px;">
+    <h1 style="color: #00fbff; font-weight: 900; text-transform: uppercase; letter-spacing: 3px; text-shadow: 0 0 15px rgba(0,251,255,0.4);">
         Лук'яненко Святослав Русланович
     </h1>
 </header>
 
 <div class="container mt-5 mb-5">
-    <!-- КАРТКА: Пуститися берега -->
-    <div class="main-row">
-        <div class="poster-box" style="flex: 0 0 220px;">
-            <img src="https://image.tmdb.org/t/p/w342/oVLZtMcIjouOXBA2nz9tJHqrK4A.jpg" class="img-fluid rounded shadow" alt="Постер">
-            <button type="button" class="btn-neon-trailer w-100 mt-2" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/SvrAA90yBvc">ТРЕЙЛЕР</button>
-            <button type="button" class="btn-watch-now w-100" onclick="checkAuth('watch.html')">ДИВИТИСЬ</button>
-        </div>
-        <div class="ms-4 flex-grow-1">
-            <h2 class="h3 mb-1 fw-bold">
-                <a href="watch.html" style="color: #fff; text-decoration: none;" title="Перейти до перегляду">Пуститися берега</a> 
-                <span class="text-muted fw-light">(2008—2013)</span>
-            </h2>
-            
-            <div class="mb-3">
-                <span class="badge border text-muted">18+</span>
-                <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Серіал / Фільм</span>
-                <span class="ms-3" style="font-size: 0.8rem; color: #555;">
-                    <del>Попсове кіно</del> <ins>Легендарна історія</ins>
-                </span>
+    
+    <!-- КАРТКА: ПУСТИТИСЯ БЕРЕГА -->
+    <div class="main-row p-4 mb-5 rounded-4 shadow-lg" style="background: #16161a; border: 1px solid #333;">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <img src="https://image.tmdb.org/t/p/w342/oVLZtMcIjouOXBA2nz9tJHqrK4A.jpg" class="img-fluid rounded-4 shadow mb-3" alt="Breaking Bad">
+                <button class="btn btn-outline-info w-100 mb-2 fw-bold" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/SvrAA90yBvc">
+                    <i class="fas fa-film me-2"></i>ТРЕЙЛЕР
+                </button>
+                <button class="btn btn-danger w-100 fw-bold" onclick="checkAuth('watch.html')">
+                    <i class="fas fa-play me-2"></i>ДИВИТИСЬ
+                </button>
             </div>
+            <div class="col-md-9 mt-3 mt-md-0">
+                <h2 class="fw-bold mb-1">
+                    <a href="watch.html" style="color: #fff; text-decoration: none;">Пуститися берега</a> 
+                    <span class="text-muted fs-4">(2008—2013)</span>
+                </h2>
+                <div class="mb-3 d-flex align-items-center flex-wrap gap-2">
+                    <span class="badge border border-secondary text-secondary">18+</span>
+                    <span class="badge bg-primary-subtle text-primary border border-primary">Серіал / Фільм</span>
+                    <span class="small text-muted ms-2">
+                        <del>Попсове кіно</del> <ins class="text-info" style="text-decoration: none;">Легендарна історія</ins>
+                    </span>
+                </div>
 
-            <div class="small mb-3">
-                <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> драма, трилер, кримінал</div>
-                <div class="mb-1"><span style="color: #00fbff;">Хімія:</span> C<sub>10</sub>H<sub>15</sub>N <sup>(чистота 99%)</sup></div>
-            </div>
+                <div class="small mb-3">
+                    <div class="mb-1"><span style="color: #00fbff;">Жанр:</span> драма, трилер, кримінал</div>
+                    <div class="mb-1"><span style="color: #00fbff;">Хімія:</span> C<sub>10</sub>H<sub>15</sub>N <small class="text-muted">(чистота 99%)</small></div>
+                </div>
 
-            <div style="max-width: 600px;">
-                <details open>
+                <details open class="mb-3">
                     <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
                     <p class="text-secondary small">
                         Це історія про вчителя, який вирішив піти проти системи. 
                         <strong>Волтер Вайт</strong> доводить, що навіть найдобріша людина може стати небезпечною.
                     </p>
                 </details>
-            </div>
 
-            <!-- 5. Цитата -->
-            <blockquote class="mt-4" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">
-                "Я не в небезпеці, Скайлер. Я і є небезпека!"
-            </blockquote>
+                <blockquote class="p-3 bg-black bg-opacity-25 border-start border-info border-3 italic" style="font-style: italic;">
+                    "Я не в небезпеці, Скайлер. Я і є небезпека!"
+                </blockquote>
 
-            <div class="mt-4">
-                <span class="me-4"><strong>КіноБаза:</strong> <span style="color: #00ff88;">9.0</span></span>
-                <span><strong>IMDb:</strong> <span style="color: #ffcc00;">9.5</span></span>
+                <div class="mt-4">
+                    <span class="me-4"><strong>КіноБаза:</strong> <span class="text-success fw-bold">9.0</span></span>
+                    <span><strong>IMDb:</strong> <span class="text-warning fw-bold">9.5</span></span>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-    <!-- КАРТКА: Сім -->
-    <div class="main-row">
-        <div class="poster-box" style="flex: 0 0 220px;">
-            <img src="https://i.kinobaza.com.ua/w300/656962f1ad9fe.jpg" class="img-fluid rounded shadow" alt="Постер">
-            <button type="button" class="btn-neon-trailer w-100 mt-2" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/znmZoVkCjpI">ТРЕЙЛЕР</button>
-            <button type="button" class="btn-watch-now w-100" onclick="checkAuth('se7en.html')">ДИВИТИСЬ</button>
-        </div>
-        <div class="ms-4 flex-grow-1">
-            <h2 class="h3 mb-1 fw-bold">Сім <span class="text-muted fw-light">(1995)</span></h2>
-            <div class="mb-3">
-                <span class="badge border text-muted">18+</span>
-                <span class="badge bg-primary-subtle text-primary border border-primary ms-2">Фільм</span>
-                <span class="badge bg-warning text-dark ms-2">Топ #42</span>
+    <!-- КАРТКА: СІМ -->
+    <div class="main-row p-4 mb-5 rounded-4 shadow-lg" style="background: #16161a; border: 1px solid #333;">
+        <div class="row">
+            <div class="col-md-3 text-center">
+                <div class="position-relative mb-3">
+                    <img src="https://i.kinobaza.com.ua/w300/656962f1ad9fe.jpg" class="img-fluid rounded-4 shadow" alt="Se7en">
+                    <div class="position-absolute bottom-0 start-50 translate-middle-x mb-2 d-flex gap-1">
+                        <span class="badge bg-warning text-dark"><i class="fas fa-star"></i> 8.6</span>
+                        <span class="badge bg-primary text-white">Full HD</span>
+                    </div>
+                </div>
+                
+                <!-- Атмосферне відео без розсинхрону -->
+                <div class="rounded-3 overflow-hidden border border-secondary" style="position: relative; pointer-events: none;">
+                    <div class="ratio ratio-16x9">
+                        <iframe src="https://www.youtube.com/embed/znmZoVkCjpI?autoplay=1&mute=1&loop=1&playlist=znmZoVkCjpI&controls=0&modestbranding=1" frameborder="0"></iframe>
+                    </div>
+                </div>
             </div>
-            <details open>
-                <summary class="fw-bold mb-2" style="color: #ff0055; cursor: pointer;">Про що цей шедевр?</summary>
-                <p class="text-secondary small">Детективи полюють на вбивцю, який карає за сім смертних гріхів.</p>
-            </details>
+            <div class="col-md-9 mt-3 mt-md-0">
+                <h1 class="fw-bold mb-1">Сім <span class="text-muted fs-4">(1995)</span></h1>
+                <p class="text-info mb-3">Se7en</p>
+                
+                <p class="lead text-secondary" style="font-size: 1.1rem;">
+                    Детективна історія про сім смертних гріхів, яка змінила жанр трилера назавжди. Легендарна гра Бреда Пітта та Моргана Фрімена.
+                </p>
 
-            <blockquote class="mt-3" style="border-left: 3px solid #00fbff; padding-left: 15px; font-style: italic;">
-                "Світ — прекрасне місце, і за нього варто боротися..."
-            </blockquote>
+                <div class="row mt-4">
+                    <div class="col-sm-6 text-small">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Жанр:</strong> <span class="text-muted ms-1">Детектив, Трилер, Кримінал</span></li>
+                            <li class="mb-2"><strong>Країна:</strong> <span class="text-muted ms-1">США</span></li>
+                            <li class="mb-2"><strong>Режисер:</strong> <span class="text-muted ms-1">Девід Фінчер</span></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 text-small">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Тривалість:</strong> <span class="text-muted ms-1">2 год 7 хв</span></li>
+                            <li class="mb-2"><strong>Вік:</strong> <span class="badge border border-danger text-danger ms-1">18+</span></li>
+                            <li class="mb-2"><strong>Озвучка:</strong> <span class="text-muted ms-1">Українська (Дубляж)</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="mt-4">
+                    <button class="btn btn-outline-info me-2 fw-bold px-4" data-bs-toggle="modal" data-bs-target="#trailerModal" data-video="https://www.youtube.com/embed/znmZoVkCjpI">
+                        <i class="fas fa-film me-2"></i> ДИВИТИСЬ ТРЕЙЛЕР
+                    </button>
+                    <button class="btn btn-danger fw-bold px-4 shadow" onclick="checkAuth('se7en.html')">
+                        <i class="fas fa-play me-2"></i> ПЕРЕЙТИ ДО ПЕРЕГЛЯДУ
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -120,10 +153,10 @@
     </div>
 </div>
 
-<!-- МОДАЛЬНЕ ВІКНО РЕЄСТРАЦІЇ -->
+<!-- МОДАЛЬНІ ВІКНА АВТОРИЗАЦІЇ -->
 <div class="modal fade" id="authModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+        <div class="modal-content bg-dark text-white border-info">
             <div class="modal-header border-0">
                 <h5 class="modal-title text-info">Реєстрація</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
@@ -132,31 +165,26 @@
                 <form id="regForm">
                     <div class="mb-3">
                         <label class="form-label small">Ваше ім'я</label>
-                        <input type="text" class="form-control" id="regName" required>
+                        <input type="text" class="form-control bg-secondary text-white border-0" id="regName" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label small">Email</label>
-                        <input type="email" class="form-control" required>
+                        <input type="email" class="form-control bg-secondary text-white border-0" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label small">Пароль</label>
-                        <input type="password" class="form-control" required>
+                        <input type="password" class="form-control bg-secondary text-white border-0" required>
                     </div>
                     <button type="submit" class="btn btn-info w-100 fw-bold text-white">ЗАРЕЄСТРУВАТИСЯ</button>
                 </form>
-                <div class="text-center mt-3">
-                    <span class="small text-muted">Вже маєте аккаунт?</span> 
-                    <a href="#" class="small text-danger fw-bold" data-bs-toggle="modal" data-bs-target="#loginModal" style="text-decoration:none;">Увійти</a>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- МОДАЛЬНЕ ВІКНО ВХОДУ (ТІЛЬКИ ПОШТА ТА ПАРОЛЬ) -->
 <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content" style="border-color: #ff0055;">
+        <div class="modal-content bg-dark text-white" style="border-color: #ff0055;">
             <div class="modal-header border-0">
                 <h5 class="modal-title text-danger">Вхід в аккаунт</h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
@@ -165,50 +193,60 @@
                 <form id="loginForm">
                     <div class="mb-3">
                         <label class="form-label small">Електронна пошта</label>
-                        <input type="email" class="form-control" placeholder="example@gmail.com" required>
+                        <input type="email" class="form-control bg-secondary text-white border-0" placeholder="example@gmail.com" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label small">Пароль</label>
-                        <input type="password" class="form-control" placeholder="••••••••" required>
+                        <input type="password" class="form-control bg-secondary text-white border-0" placeholder="••••••••" required>
                     </div>
                     <button type="submit" class="btn btn-danger w-100 fw-bold">УВІЙТИ</button>
                 </form>
-                <div class="text-center mt-3">
-    <span class="small text-muted">Немає акаунту?</span> 
-    <a href="#" class="small text-info fw-bold" data-bs-toggle="modal" data-bs-target="#authModal" style="text-decoration:none;">Зареєструйся</a>
-</div>
+                <div class="text-center mt-3 small text-muted">
+                    Немає акаунту? <a href="#" class="text-info fw-bold" data-bs-toggle="modal" data-bs-target="#authModal" style="text-decoration:none;">Зареєструйся</a>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 1. Бібліотеки Bootstrap -->
+<!-- Скрипти -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- 2. Конфігурація Firebase (має бути ПЕРЕД main.js) -->
 <script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-  import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyC_HapnGpeNmu52ZGb5H4CzFAD7gFLWiS0",
-    authDomain: "svatik-cinema.firebaseapp.com",
-    projectId: "svatik-cinema",
-    storageBucket: "svatik-cinema.firebasestorage.app",
-    messagingSenderId: "89690515566",
-    appId: "1:89690515566:web:66b9bd797ed872d8c4de7f"
-  };
+    const firebaseConfig = {
+        apiKey: "AIzaSyC_HapnGpeNmu52ZGb5H4CzFAD7gFLWiS0",
+        authDomain: "svatik-cinema.firebaseapp.com",
+        projectId: "svatik-cinema",
+        storageBucket: "svatik-cinema.firebasestorage.app",
+        messagingSenderId: "89690515566",
+        appId: "1:89690515566:web:66b9bd797ed872d8c4de7f"
+    };
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-  // Важливо: передаємо об'єкт у глобальну видимість
-  window.auth = auth;
-  
-  console.log("Firebase підключено успішно!");
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    window.auth = auth;
 </script>
 
-<!-- 3. Твій основний файл (Тільки один раз і в самому кінці) -->
 <script type="module" src="main.js"></script>
+
+<script>
+    // Скрипт для керування відео в модалці трейлера
+    const trailerModal = document.getElementById('trailerModal');
+    const trailerVideo = document.getElementById('trailerVideo');
+
+    trailerModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget;
+        const videoUrl = button.getAttribute('data-video');
+        trailerVideo.src = videoUrl + "?autoplay=1";
+    });
+
+    trailerModal.addEventListener('hide.bs.modal', function () {
+        trailerVideo.src = "";
+    });
+</script>
+
 </body>
 </html>
