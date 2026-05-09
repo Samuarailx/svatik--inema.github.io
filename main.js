@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const trailerModal = document.getElementById('trailerModal');
     const videoIframe = document.getElementById('trailerVideo');
 
+    // Трейлер тепер працює завжди, бо він просто відкриває модалку за ID
     if (trailerModal) {
         trailerModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
@@ -17,41 +18,41 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Викликаємо перевірку кнопок при завантаженні сторінки
     updateNavbar();
 });
 
 let pendingPage = "";
 
+// Ця функція тепер викликається ТІЛЬКИ при натисканні на "ДИВИТИСЬ"
 function checkAuth(page) {
     pendingPage = page;
     if (localStorage.getItem('isLogged') === 'true') {
         window.location.href = page;
     } else {
+        // Якщо не залогінений — показуємо реєстрацію
         const regModal = new bootstrap.Modal(document.getElementById('authModal'));
         regModal.show();
     }
 }
 
-// ОБРОБНИК РЕЄСТРАЦІЇ
+// Обробник реєстрації
 document.getElementById('regForm').addEventListener('submit', function(e) {
     e.preventDefault();
     localStorage.setItem('isLogged', 'true');
-    updateNavbar(); // <--- ОНОВЛЮЄМО КНОПКИ ПІСЛЯ ВХОДУ
+    updateNavbar();
     window.location.href = pendingPage || 'index.html';
 });
 
-// ОБРОБНИК ВХОДУ
+// Обробник входу
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     localStorage.setItem('isLogged', 'true');
-    updateNavbar(); // <--- ОНОВЛЮЄМО КНОПКИ ПІСЛЯ ВХОДУ
+    updateNavbar();
     window.location.href = pendingPage || 'index.html';
 });
 
-// ФУНКЦІЯ ОНОВЛЕННЯ КНОПОК
 function updateNavbar() {
-    const isLogged = localStorage.getItem('isLogged') === 'true');
+    const isLogged = localStorage.getItem('isLogged') === 'true';
     const loginBtn = document.getElementById('loginBtn');
     const logoutBtn = document.getElementById('logoutBtn');
 
@@ -66,9 +67,7 @@ function updateNavbar() {
     }
 }
 
-// ФУНКЦІЯ ВИХОДУ
 function logout() {
     localStorage.removeItem('isLogged');
-    updateNavbar();
     window.location.reload();
 }
