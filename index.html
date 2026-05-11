@@ -223,7 +223,6 @@
             loginBtn.classList.replace('btn-outline-info', 'btn-success');
             loginBtn.disabled = true;
             
-            // Через 2 секунди замінюємо напис на кнопку Виходу
             setTimeout(() => {
                 loginBtn.classList.add('d-none');
                 logoutBtn.classList.remove('d-none');
@@ -237,7 +236,7 @@
         }
     });
 
-    // Обробка реєстрації (authModal)
+    // Реєстрація
     document.getElementById('regForm').addEventListener('submit', (e) => {
         e.preventDefault();
         const email = e.target[1].value;
@@ -245,15 +244,15 @@
 
         createUserWithEmailAndPassword(auth, email, pass)
             .then(() => {
-                const modal = bootstrap.Modal.getInstance(document.getElementById('authModal'));
+                const modalElement = document.getElementById('authModal');
+                const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
                 modal.hide();
-                // Перекидаємо на сторінку фільму (наприклад, Breaking Bad)
                 window.location.href = window.pendingPage || 'watch.html';
             })
             .catch(err => alert("Помилка: " + err.message));
     });
 
-    // Обробка входу (loginModal)
+    // Вхід
     document.getElementById('loginForm').addEventListener('submit', (e) => {
         e.preventDefault();
         const email = e.target[0].value;
@@ -261,7 +260,9 @@
 
         signInWithEmailAndPassword(auth, email, pass)
             .then(() => {
-                bootstrap.Modal.getInstance(document.getElementById('loginModal')).hide();
+                const modalElement = document.getElementById('loginModal');
+                const modal = bootstrap.Modal.getInstance(modalElement) || new bootstrap.Modal(modalElement);
+                modal.hide();
             })
             .catch(err => alert("Помилка: " + err.message));
     });
@@ -270,18 +271,39 @@
 </script>
 
 <script>
-    // Функція перевірки з пам'яттю сторінки
+    // Функція перевірки доступу
     function checkAuth(page) {
         const user = window.auth ? window.auth.currentUser : null;
         if (user) {
             window.location.href = page;
         } else {
-            window.pendingPage = page; // Запам'ятовуємо, куди хотів зайти користувач
+            window.pendingPage = page;
             const registrationModal = new bootstrap.Modal(document.getElementById('authModal'));
             registrationModal.show();
         }
     }
+
+    // ЛОГІКА ТРЕЙЛЕРА (Виправлення сірого екрану)
+    document.addEventListener('DOMContentLoaded', function() {
+        const trailerModal = document.getElementById('trailerModal');
+        const trailerVideo = document.getElementById('trailerVideo');
+
+        trailerModal.addEventListener('show.bs.modal', function (event) {
+            // Кнопка, яка відкрила модалку
+            const button = event.relatedTarget;
+            // Витягуємо посилання з data-video
+            const videoUrl = button.getAttribute('data-video');
+            // Вставляємо посилання в iframe
+            trailerVideo.src = videoUrl + "?autoplay=1";
+        });
+
+        // Очищуємо відео при закритті, щоб звук не йшов далі
+        trailerModal.addEventListener('hide.bs.modal', function () {
+            trailerVideo.src = "";
+        });
+    });
 </script>
-    <script type="module src"main.js"></script>
+
+<script type="module" src="main.js"></script>
 </body>
 </html>
